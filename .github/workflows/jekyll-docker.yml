@@ -28,7 +28,7 @@ jobs:
           bundler-cache: true
           cache-version: 0 # Increment this number if you need to re-download cached gems
       - name: Prepare Gemfile
-        run: echo "gem 'jekyll'" >> Gemfile
+        run: echo "gem 'jekyll'\ngem 'bundler'" >> Gemfile
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
