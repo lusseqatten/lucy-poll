@@ -13,6 +13,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Setup Ruby
+      uses: actions/setup-ruby@v2
+      with:
+        ruby-version: 2.x
+
+    - name: Install Jekyll and bundler
+      run: |
+        gem install jekyll bundler
+
+    - name: Install webrick gem
+      run: |
+        echo "gem 'webrick'" >> Gemfile
+        bundle install
+
     - name: Build the site in the jekyll/builder container
       run: |
         docker run \
