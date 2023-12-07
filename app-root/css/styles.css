@@ -11232,9 +11232,9 @@ body {
   background-clip: text;
 }
 
-.masthead h1 { 
+.masthead h1 {
   animation: pulse 2s infinite;
-  animation-timing-function: ease-out;   
+  animation-timing-function: ease-in;
 }
 
 @keyframes pulse {
@@ -11243,17 +11243,36 @@ body {
   100% { transform: scale(1); }
 }
 
+.masthead h1 {
+   transition-property: all; 
+   transition-duration: .15s;
+   transition-timing-function: ease-in;
+}
+
 .masthead h1:hover {
   animation: shake 875ms infinite;
-  animation-timing-function: ease-in-out;
-  background: linear-gradient(rgba(255, 50, 180, 0.9), rgba(255, 111, 255, 0));color: var(--transparency-max);
+  animation-timing-function: jump-end;
+  background: linear-gradient(rgba(157, 68, 137, 0.9), rgba(255, 111, 255, 0));
+  color: var(--transparency-max);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  background-clip: text;   
+  background-clip: text;
 }
 
 body:has( h1:hover) {
+  /*
+  background-image:
+    linear-gradient(black, black),
+    url(image-to-be-fake-filters.jpg);
+  background-size: cover;
+  background-blend-mode: saturation;
+  */
   filter:contrast(1.3) saturate(1.5);
+}
+body {
+  transition-property: -moz-filter, -ms-filter, -o-filter, -webkit-filter, filter;
+  transition-duration: .5s;
+  transition-timing-function: jump-start;
 }
 
 @keyframes shake {
@@ -11282,12 +11301,12 @@ body:has( h1:hover) {
     -webkit-background-clip: text;
     background-clip: text;
   }
-  58% { transform: rotate(-.5deg) scale(1.02); color: var(--transparency-max);
+  64% { transform: rotate(-.5deg) scale(1.02); color: var(--transparency-max);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
   }
-  70% { transform: rotate(-1deg) scale(1.05); background: linear-gradient(rgba(255, 50, 180, 0.9), rgba(255, 255, 255, 0));color: var(--transparency-max);
+  80% { transform: rotate(-1deg) scale(1.05); background: linear-gradient(rgba(255, 50, 180, 0.9), rgba(255, 255, 255, 0));color: var(--transparency-max);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
